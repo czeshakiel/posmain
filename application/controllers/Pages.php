@@ -25,7 +25,7 @@ date_default_timezone_set('Asia/Manila');
                 $this->session->set_userdata($userdata);
                 redirect(base_url('main'));
             } else {
-                redirect(base_url());
+                redirect('../');
             }
         }
         public function main(){
@@ -35,6 +35,43 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}
             $data['title'] = "Products Masterfile";
+            $this->load->view('includes/header');
+            $this->load->view('includes/navbar');
+            $this->load->view('includes/sidebar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function logout(){
+            $this->session->sess_destroy();
+            redirect('../');
+        }
+
+        public function products(){
+            $page = "products";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Products Masterfile";
+            $data['items'] = $this->Sales_model->getAllProducts();
+            $this->load->view('includes/header');
+            $this->load->view('includes/navbar');
+            $this->load->view('includes/sidebar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function manage_products($id){
+            $page = "manage_products";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Products Masterfile";
+            $data['item'] = $this->Sales_model->getSingleProducts($id);
             $this->load->view('includes/header');
             $this->load->view('includes/navbar');
             $this->load->view('includes/sidebar');

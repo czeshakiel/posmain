@@ -11,11 +11,17 @@
 <title>POINT OF SALES | MAIN</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <!-- Favicon-->
-<link rel="stylesheet" href="design/assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?=base_url('design/assets/plugins/bootstrap/css/bootstrap.min.css');?>">
 <!-- JQuery DataTable Css -->
-<link rel="stylesheet" href="design/assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="<?=base_url('design/assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css');?>">
 <!-- Custom Css -->
-<link  rel="stylesheet" href="design/assets/css/style.min.css">
+
+<link rel="stylesheet" href="<?=base_url('design/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css');?>"/>
+<link rel="stylesheet" href="<?=base_url('design/assets/plugins/charts-c3/plugin.css');?>"/>
+
+<link rel="stylesheet" href="<?=base_url('design/assets/plugins/morrisjs/morris.min.css');?>" />
+
+<link  rel="stylesheet" href="<?=base_url('design/assets/css/style.min.css');?>">
 </head>
 
 <body class="theme-blush">
@@ -26,12 +32,4 @@
         <div class="m-t-30"><img class="zmdi-hc-spin" src="design/assets/images/loader.svg" width="48" height="48" alt="Aero"></div>
         <p>Please wait...</p>
     </div>
-</div>
-
-<div id="search">
-    <button id="close" type="button" class="close btn btn-primary btn-icon btn-icon-mini btn-round">x</button>
-    <form>
-        <input type="search" value="" placeholder="Search..." />
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
 </div>
