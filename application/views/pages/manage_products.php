@@ -39,13 +39,13 @@
             }
             $sku="";$description="";$unitcost="";$srp="";$category="";$reorder="";$location="";
             if($item){
-                $sku = $item->sku;
-                $description = $item->description;
-                $unitcost = $item->unitcost;
-                $srp = $item->srp;
-                $category = $item->category;
-                $reorder = $item->reorder;
-                $location = $item->location;
+                // $sku = $item->sku;
+                // $description = $item->description;
+                // $unitcost = $item->unitcost;
+                // $srp = $item->srp;
+                // $category = $item->category;
+                // $reorder = $item->reorder;
+                // $location = $item->location;
             }
         ?>
 
@@ -57,10 +57,11 @@
                         <div class="header">
                             <h2><strong>Item Details</strong></h2>
                         </div>
-                        <form method="POST" action="<?=base_url('save_products');?>">
+                        <?=form_open(base_url('save_products'));?>
+                        <input type="hidden" name="id" value="<?=$id;?>">
                         <div class="body">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="SKU" name="sku" value="<?=$sku;?>">
+                                <input type="text" class="form-control" placeholder="SKU" name="sku" value="<?=$sku;?>" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Description" name="description" value="<?=$description;?>">
@@ -81,10 +82,12 @@
                                 <input type="text" class="form-control" placeholder="Location (e.g. Shelf 1, Shelf 2)" name="location" value="<?=$location;?>">
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary" value="SAVE" name="save">
+                                <button type="submit" class="btn btn-primary">
+                                    SAVE
+                                </button>
                             </div>
                         </div>
-                        </form>
+                        <?=form_close();?>
                     </div>
                 </div>
             </div>

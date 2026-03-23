@@ -9,7 +9,7 @@
 <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
 <title>POINT OF SALES | MAIN</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?=base_url('favicon.ico');?>" type="image/x-icon">
 <!-- Favicon-->
 <link rel="stylesheet" href="<?=base_url('design/assets/plugins/bootstrap/css/bootstrap.min.css');?>">
 <!-- JQuery DataTable Css -->
@@ -29,7 +29,7 @@
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="design/assets/images/loader.svg" width="48" height="48" alt="Aero"></div>
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="<?=base_url('design/assets/images/loader.svg');?>" width="48" height="48" alt="Aero"></div>
         <p>Please wait...</p>
     </div>
 </div>

@@ -25,7 +25,7 @@ date_default_timezone_set('Asia/Manila');
                 $this->session->set_userdata($userdata);
                 redirect(base_url('main'));
             } else {
-                redirect('../');
+                redirect(base_url());
             }
         }
         public function main(){
@@ -44,8 +44,10 @@ date_default_timezone_set('Asia/Manila');
         }
 
         public function logout(){
-            $this->session->sess_destroy();
-            redirect('../');
+            $this->session->unset_userdata('user_login');
+            $this->session->unset_userdata('username');
+            $this->session->unset_userdata('fullname');
+            redirect(base_url());
         }
 
         public function products(){
@@ -71,6 +73,7 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}
             $data['title'] = "Products Masterfile";
+            $data['id'] = $id;
             $data['item'] = $this->Sales_model->getSingleProducts($id);
             $this->load->view('includes/header');
             $this->load->view('includes/navbar');
@@ -79,5 +82,34 @@ date_default_timezone_set('Asia/Manila');
             $this->load->view('includes/modal');
             $this->load->view('includes/footer');
         }
+
+        public function save_products(){
+            $id = $this->input->post('id');
+            $sku = $this->input->post('sku');
+            $description = $this->input->post('description');
+            $unitcost = $this->input->post('unitcost');
+            $srp = $this->input->post('srp');
+            $category = $this->input->post('category');
+            $reorder = $this->input->post('reorder');
+            $location = $this->input->post('location');
+            if($id==0){
+                //update
+                $save = $this->Sales_model->updateProducts($id, $sku, $description, $unitcost, $srp, $category, $reorder, $location);
+                if($save){
+                    $this->session->set_flashdata('success', 'Product successfully updated!');
+                } else {
+                    $this->session->set_flashdata('failed', 'Failed to update product!');
+                }
+            } else {
+                //insert
+                $save = $this->Sales_model->insertProducts($sku, $description, $unitcost, $srp, $category, $reorder, $location);
+                if($save){
+                    $this->session->set_flashdata('success', 'Product successfully added!');
+                } else {
+                    $this->session->set_flashdata('failed', 'Failed to add product!');
+                }
+            }
+            redirect(base_url('products'));
+    }
 }
 ?>

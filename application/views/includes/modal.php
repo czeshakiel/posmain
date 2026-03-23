@@ -8,7 +8,7 @@
                 Are you sure you want to sign out?
             </div>
             <div class="modal-footer">
-                <a href="logout" class="btn btn-default btn-round waves-effect">YES</a>
+                <a href="<?= base_url('pages/logout'); ?>" class="btn btn-default btn-round waves-effect">YES</a>
                 <button type="button" class="btn btn-danger btn-round waves-effect" data-dismiss="modal">NO</button>
             </div>
         </div>
