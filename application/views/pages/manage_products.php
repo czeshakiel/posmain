@@ -37,7 +37,7 @@
                     </button>
                 <?php
             }
-            $sku="";$description="";$unitcost="";$srp="";$category="";$reorder="";$location="";
+            $sku="";$description="";$unitcost="";$srp="";$category="";$reorder="";$location="";$category="";
             if($item){
                 // $sku = $item->sku;
                 // $description = $item->description;
@@ -73,7 +73,7 @@
                                 <input type="text" class="form-control" placeholder="SRP" name="srp" value="<?=$srp;?>">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Category (e.g. Beverages, Snacks)" name="category" value="<?=$category;?>">
+                               <input type="text" class="form-control" placeholder="Category (e.g. Electrical, Plumbing)" name="category" value="<?=$category;?>">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Reorder Level" name="reorder" value="<?=$reorder;?>">

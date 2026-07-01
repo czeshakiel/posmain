@@ -75,6 +75,7 @@ date_default_timezone_set('Asia/Manila');
             $data['title'] = "Products Masterfile";
             $data['id'] = $id;
             $data['item'] = $this->Sales_model->getSingleProducts($id);
+            $data['category'] = $this->Sales_model->getCategory();
             $this->load->view('includes/header');
             $this->load->view('includes/navbar');
             $this->load->view('includes/sidebar');

@@ -29,5 +29,9 @@
                 return false;
             }
         }
+        public function getCategory(){            
+            $query = $this->db->query("SELECT * FROM category ORDER BY  `description` ASC");
+            return $query->result_array();
+        }
     }
 ?>
